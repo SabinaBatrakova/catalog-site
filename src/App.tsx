@@ -1,0 +1,8 @@
+function App() {
+  return (
+    <div className="bg-blue-500 text-white p-8 text-2xl">
+      <p>Hello</p>
+    </div>
+  );
+}
+export default App;
