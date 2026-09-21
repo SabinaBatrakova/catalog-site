@@ -1,8 +1,23 @@
+import { Header } from '@/components/blocks/Header'
+import { Hero } from '@/components/blocks/Hero'
+import { content } from '@/templates/beauty-1/content'
+
 function App() {
   return (
-    <div className="bg-blue-500 text-white p-8 text-2xl">
-      <p>Hello</p>
+    <div>
+      <Header
+        businessName={content.businessName}
+        ctaLabel={content.ctaLabel}
+        ctaHref={content.ctaHref}
+      />
+      <Hero
+        tagline={content.tagline}
+        subtext={content.heroSubtext}
+        ctaLabel={content.ctaLabel}
+        ctaHref={content.ctaHref}
+      />
     </div>
-  );
+  )
 }
-export default App;
+
+export default App
