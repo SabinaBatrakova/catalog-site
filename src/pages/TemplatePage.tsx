@@ -5,10 +5,12 @@ import { Hero } from '@/components/blocks/Hero'
 import { ServicesGrid } from '@/components/blocks/ServicesGrid'
 import { ContactCTA } from '@/components/blocks/ContactCTA'
 import { Footer } from '@/components/blocks/Footer'
-import { content as beautyContent } from '@/templates/beauty-1/content'
+import { beautyContent } from '@/templates/beauty-1/content'
+import { schoolContent } from '@/templates/school-1/content'
 
 const registry: Record<string, TemplateContent> = {
   'beauty-1': beautyContent,
+  'school-1': schoolContent,
 }
 
 export function TemplatePage() {

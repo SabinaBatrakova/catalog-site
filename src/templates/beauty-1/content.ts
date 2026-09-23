@@ -1,6 +1,6 @@
 import type { TemplateContent } from "@/lib/types";
 
-export const content: TemplateContent = {
+export const beautyContent: TemplateContent = {
   slug: "beauty-1",
   niche: "Услуги и красота",
   businessName: "Salon Atelier",
