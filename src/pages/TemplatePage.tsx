@@ -1,24 +1,26 @@
-import { useParams } from 'react-router-dom'
-import type { TemplateContent } from '@/lib/types'
-import { Header } from '@/components/blocks/Header'
-import { Hero } from '@/components/blocks/Hero'
-import { ServicesGrid } from '@/components/blocks/ServicesGrid'
-import { ContactCTA } from '@/components/blocks/ContactCTA'
-import { Footer } from '@/components/blocks/Footer'
-import { beautyContent } from '@/templates/beauty-1/content'
-import { schoolContent } from '@/templates/school-1/content'
+import { useParams } from "react-router-dom";
+import type { TemplateContent } from "@/lib/types";
+import { Header } from "@/components/blocks/Header";
+import { Hero } from "@/components/blocks/Hero";
+import { ServicesGrid } from "@/components/blocks/ServicesGrid";
+import { ContactCTA } from "@/components/blocks/ContactCTA";
+import { Footer } from "@/components/blocks/Footer";
+import { beautyContent } from "@/templates/beauty-1/content";
+import { schoolContent } from "@/templates/school-1/content";
+import { rentalContent } from "@/templates/rental-1/content";
 
 const registry: Record<string, TemplateContent> = {
-  'beauty-1': beautyContent,
-  'school-1': schoolContent,
-}
+  "beauty-1": beautyContent,
+  "school-1": schoolContent,
+  "rental-1": rentalContent,
+};
 
 export function TemplatePage() {
-  const { templateId } = useParams<{ templateId: string }>()
-  const content = registry[templateId ?? '']
+  const { templateId } = useParams<{ templateId: string }>();
+  const content = registry[templateId ?? ""];
 
   if (!content) {
-    return <div className="p-12">Шаблон не найден</div>
+    return <div className="p-12">Шаблон не найден</div>;
   }
 
   return (
@@ -38,5 +40,5 @@ export function TemplatePage() {
       <ContactCTA ctaLabel={content.ctaLabel} ctaHref={content.ctaHref} />
       <Footer businessName={content.businessName} />
     </div>
-  )
+  );
 }
