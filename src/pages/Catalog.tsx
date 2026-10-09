@@ -8,28 +8,32 @@ const niches = [
 
 export function Catalog() {
   return (
-    <div className="px-6 py-12">
-      <h1 className="text-3xl">Каталог сайтов</h1>
-      <ul className="mt-8 max-w-md divide-y">
-        {niches.map((n) => (
-          <li
-            key={n.templateId}
-            className="flex items-center justify-between py-4"
-          >
-            <span>{n.label}</span>
-            {n.live ? (
+    <div className="flex h-screen">
+      <aside className="w-80 shrink-0 overflow-y-auto border-r p-8">
+        <h1 className="text-2xl">Имя Фамилия</h1>
+        <p className="mt-4 text-sm">
+          Делаю сайты для малого бизнеса в Черногории. Выбери шаблон справа.
+        </p>
+      </aside>
+
+      <main className="flex-1 overflow-y-auto p-8">
+        <ul className="max-w-md divide-y">
+          {niches.map((n) => (
+            <li
+              key={n.templateId}
+              className="flex items-center justify-between py-4"
+            >
+              <span>{n.label}</span>
               <Link
                 to={`/templates/${n.templateId}`}
                 className="text-blue-500 underline"
               >
                 Смотреть демо
               </Link>
-            ) : (
-              <span className="text-sm opacity-50">Скоро</span>
-            )}
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </main>
     </div>
   );
 }
