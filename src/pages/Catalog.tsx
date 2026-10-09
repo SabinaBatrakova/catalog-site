@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const niches = [
   { templateId: "beauty-1", label: "Услуги и красота", live: true },
@@ -7,16 +8,31 @@ const niches = [
 ];
 
 export function Catalog() {
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
     <div className="flex h-screen">
-      <aside className="w-80 shrink-0 overflow-y-auto border-r p-8">
-        <h1 className="text-2xl">Имя Фамилия</h1>
-        <p className="mt-4 text-sm">
-          Делаю сайты для малого бизнеса в Черногории. Выбери шаблон справа.
-        </p>
+      <aside
+        className={`shrink-0 overflow-hidden transition-all duration-300 ${
+          isOpen ? "w-80 border-r" : "w-0"
+        }`}
+      >
+        <div className="h-full w-80 overflow-y-auto p-8">
+          <h1 className="text-2xl">Сабина Батракова</h1>
+          <p className="mt-4 text-sm">
+            Делаю сайты для малого бизнеса. Выбери шаблон справа.
+          </p>
+        </div>
       </aside>
 
       <main className="flex-1 overflow-y-auto p-8">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="mb-6 rounded-full border px-4 py-2 text-sm"
+        >
+          {isOpen ? "Скрыть описание" : "Показать описание"}
+        </button>
+
         <ul className="max-w-md divide-y">
           {niches.map((n) => (
             <li
