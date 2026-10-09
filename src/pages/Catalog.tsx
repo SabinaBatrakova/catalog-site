@@ -2,9 +2,24 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const niches = [
-  { templateId: "beauty-1", label: "Услуги и красота", live: true },
-  { templateId: "school-1", label: "Обучение и семинары", live: true },
-  { templateId: "rental-1", label: "Туризм и аренда", live: true },
+  {
+    templateId: "beauty-1",
+    label: "Услуги и красота",
+    desc: "Салоны, мастера, студии",
+    live: true,
+  },
+  {
+    templateId: "school-1",
+    label: "Обучение и семинары",
+    desc: "Школы, семинары, курсы",
+    live: true,
+  },
+  {
+    templateId: "rental-1",
+    label: "Туризм и аренда",
+    desc: "Туры, аренда, отели",
+    live: true,
+  },
 ];
 
 export function Catalog() {
