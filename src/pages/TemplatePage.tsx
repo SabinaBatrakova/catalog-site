@@ -1,5 +1,6 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import type { TemplateContent } from "@/lib/types";
+import { contacts } from "@/lib/contacts";
 import { Header } from "@/components/blocks/Header";
 import { Hero } from "@/components/blocks/Hero";
 import { ServicesGrid } from "@/components/blocks/ServicesGrid";
@@ -18,13 +19,14 @@ const registry: Record<string, TemplateContent> = {
 export function TemplatePage() {
   const { templateId } = useParams<{ templateId: string }>();
   const content = registry[templateId ?? ""];
+  const isInsideFrame = window.self !== window.top;
 
   if (!content) {
     return <div className="p-12">Шаблон не найден</div>;
   }
 
   return (
-    <div>
+    <div className={isInsideFrame ? "" : "pb-24"}>
       <Header
         businessName={content.businessName}
         ctaLabel={content.ctaLabel}
@@ -39,6 +41,25 @@ export function TemplatePage() {
       <ServicesGrid services={content.services} />
       <ContactCTA ctaLabel={content.ctaLabel} ctaHref={content.ctaHref} />
       <Footer businessName={content.businessName} />
+
+      {!isInsideFrame && (
+        <div className="fixed inset-x-0 bottom-4 z-50 flex justify-center gap-3 px-4">
+          <Link
+            to="/"
+            className="rounded-full border bg-white px-5 py-3 text-sm shadow"
+          >
+            ← В каталог
+          </Link>
+          <a
+            href={contacts[0].href}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full bg-black px-5 py-3 text-sm text-white shadow"
+          >
+            Хочу такой сайт
+          </a>
+        </div>
+      )}
     </div>
   );
 }

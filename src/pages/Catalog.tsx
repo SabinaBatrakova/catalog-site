@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
+import { contacts } from "@/lib/contacts";
 
 const niches = [
   {
@@ -78,11 +79,44 @@ export function Catalog() {
           isOpen ? "w-80 border-r" : "w-0"
         }`}
       >
-        <div className="h-full w-80 overflow-y-auto p-8">
+        <div className="flex h-full w-80 flex-col overflow-y-auto p-8">
           <h1 className="text-2xl">Сабина Батракова</h1>
-          <p className="mt-4 text-sm">
-            Делаю сайты для малого бизнеса. Выбери шаблон справа.
+          <p className="mt-1 text-sm opacity-70">Веб-разработчик</p>
+
+          <p className="mt-6 text-sm leading-relaxed">
+            Создаю сайты для малого бизнеса: салонов, школ, туристических и
+            арендных проектов. Выбираешь шаблон справа, я адаптирую его под твой
+            бизнес за 1–3 дня.
           </p>
+
+          <ul className="mt-6 space-y-2 text-sm">
+            <li>Адаптация шаблона 80€</li>
+            <li>Сайт с индивидуальными блоками 150€</li>
+            <li>Мини-сайт на 3–5 страниц от 300€</li>
+          </ul>
+
+          <a
+            href={contacts[0].href}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 rounded-full border px-5 py-3 text-center text-sm"
+          >
+            Заказать сайт
+          </a>
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            {contacts.map((c) => (
+              <a
+                key={c.label}
+                href={c.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm underline"
+              >
+                {c.label}
+              </a>
+            ))}
+          </div>
         </div>
       </aside>
 
