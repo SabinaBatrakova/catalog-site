@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+  --color-paper: #ffffff;
+  --color-ink: #282929;
+  --color-line: #d4d4d4;
+  --color-muted: #555555;
+  --color-accent: #8e1b4a;
+  --color-steel: #6c92a0;
+
+  --font-display: "Oswald", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Roboto Serif", ui-serif, Georgia, serif;
+  --font-hand: "Caveat", cursive;
+}
+
+@utility font-narrow {
+  font-variation-settings: "wdth" 62.5;
+  font-stretch: 62.5%;
+}
