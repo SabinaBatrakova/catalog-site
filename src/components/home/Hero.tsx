@@ -1,6 +1,6 @@
 import { contacts } from "@/lib/contacts";
 
-const services = ["Сайты", "Лендинги", "Визитки", "Каталоги"];
+const services = ["Лендинги", "Визитки", "Каталоги"];
 
 export function Hero() {
   return (

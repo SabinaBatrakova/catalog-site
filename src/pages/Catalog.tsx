@@ -1,8 +1,9 @@
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
 import { RunningText } from "@/components/home/RunningText";
-import { WorksCarousel } from "@/components/home/WorksCarousel";
 import { About } from "@/components/home/About";
+import { WorksCarousel } from "@/components/home/WorksCarousel";
+import { SiteFooter } from "@/components/home/SiteFooter";
 
 export function Catalog() {
   return (
@@ -14,6 +15,7 @@ export function Catalog() {
         <About />
         <WorksCarousel />
       </main>
+      <SiteFooter />
     </div>
   );
 }

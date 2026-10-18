@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const works = ["Салон красоты", "iPODO Expert Lab", "Шаблоны"];
+const works = ["Салон красоты", "Шаблоны"];
 const tiles = ["bg-steel", "bg-line", "bg-accent"];
 const topics = "Шаблоны · Сайты · Лендинги · Визитки · Каталоги";
 
