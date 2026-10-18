@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
+import { RunningText } from "@/components/home/RunningText";
 
 export function Catalog() {
   return (
@@ -7,6 +8,7 @@ export function Catalog() {
       <SiteHeader />
       <main>
         <Hero />
+        <RunningText />
       </main>
     </div>
   );
