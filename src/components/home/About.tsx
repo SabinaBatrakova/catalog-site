@@ -9,18 +9,50 @@ export function About() {
         </p>
       </Reveal>
 
-      <div className="mt-6 font-hand text-[32px] font-medium leading-[1.05] md:ml-[42%] md:text-[38px]">
+      <div className="mt-6 max-w-[520px] md:ml-[36%]">
         <Reveal>
-          <p>
-            Привет, я Сабина. Делаю сайты и лендинги для малого бизнеса:
-            салонов, школ, туристических и арендных проектов.
+          <h2 className="font-serif text-[30px] leading-[1.08] tracking-tight md:text-[38px]">
+            Создаю сайты, в которых идея встречается с системой
+          </h2>
+        </Reveal>
+
+        <Reveal delay={120} className="mt-8">
+          <p className="font-hand text-[44px] font-medium leading-none">
+            Привет!
           </p>
         </Reveal>
-        <Reveal delay={120} className="mt-3">
-          <p>Беру проверенный шаблон и подгоняю под ваше дело.</p>
-        </Reveal>
-        <Reveal delay={240} className="mt-3">
-          <p>Готовый сайт вы получаете за 1–3 дня.</p>
+
+        <div className="mt-4 space-y-4 font-serif text-[17px] leading-[1.65]">
+          <Reveal delay={200}>
+            <p>
+              Я занимаюсь созданием сайтов, сочетая инженерный подход,
+              визуальное мышление и современные инструменты разработки.
+            </p>
+          </Reveal>
+          <Reveal delay={260}>
+            <p>
+              Для меня сайт — это не просто красивая страница, а способ
+              рассказать о вашем деле, донести его ценность и привлечь внимание
+              нужной аудитории.
+            </p>
+          </Reveal>
+          <Reveal delay={320}>
+            <p>
+              Я помогаю превращать идеи в цифровые решения, уделяя внимание
+              структуре, эстетике и функциональности. В работе использую
+              современные AI-инструменты, чтобы эффективнее проходить путь от
+              идеи до реализации.
+            </p>
+          </Reveal>
+          <Reveal delay={380}>
+            <p>Каждый проект начинается с вашей идеи.</p>
+          </Reveal>
+        </div>
+
+        <Reveal delay={440} className="mt-6">
+          <p className="font-hand text-[34px] font-medium leading-[1.05] md:text-[38px]">
+            Моя задача — найти для неё подходящую форму.
+          </p>
         </Reveal>
       </div>
     </section>
