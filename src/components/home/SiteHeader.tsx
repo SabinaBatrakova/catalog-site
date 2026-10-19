@@ -2,10 +2,9 @@ import { useEffect, useRef } from "react";
 import { contacts } from "@/lib/contacts";
 
 const MIN_SIZE = 14;
-const MAX_SIZE_DESKTOP = 150;
-const MAX_SIZE_MOBILE = 84;
-const FOOTER_OFFSET = 0.5;
-const EASE = 2;
+const MAX_SIZE_DESKTOP = 110;
+const MAX_SIZE_MOBILE = 64;
+const EASE = 1.5;
 
 export function SiteHeader() {
   const nameRef = useRef<HTMLAnchorElement>(null);
@@ -18,22 +17,13 @@ export function SiteHeader() {
 
     const update = () => {
       const name = nameRef.current;
-      const footer = document.getElementById("footer");
-      if (!name || !footer) return;
+      if (!name) return;
 
-      const footerTop = footer.getBoundingClientRect().top + window.scrollY;
       const maxScroll = Math.max(
         document.documentElement.scrollHeight - window.innerHeight,
         1,
       );
-      const end = Math.min(
-        footerTop - window.innerHeight * FOOTER_OFFSET,
-        maxScroll,
-      );
-      const progress = Math.min(
-        Math.max(window.scrollY / Math.max(end, 1), 0),
-        1,
-      );
+      const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
       const eased = Math.pow(progress, EASE);
       const maxSize =
         window.innerWidth < 768 ? MAX_SIZE_MOBILE : MAX_SIZE_DESKTOP;
@@ -82,4 +72,4 @@ export function SiteHeader() {
       </header>
     </>
   );
-} 
+}
