@@ -17,3 +17,20 @@
   font-variation-settings: "wdth" 62.5;
   font-stretch: 62.5%;
 }
+
+@keyframes sticker-wave {
+  from {
+    mask-position: 0 0;
+  }
+  to {
+    mask-position: 40px 0;
+  }
+}
+
+@utility sticker-wave {
+  height: 14px;
+  background: var(--sticker-fill);
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14'><path d='M0,14 L0,7 Q10,0 20,7 T40,7 L40,14 Z'/></svg>")
+    repeat-x 0 0 / 40px 14px;
+  animation: sticker-wave 3s linear infinite;
+}
