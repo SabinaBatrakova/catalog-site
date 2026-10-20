@@ -5,8 +5,11 @@ const label = "font-display text-xs font-medium uppercase tracking-[0.08em]";
 
 export function SiteFooter() {
   return (
-    <footer id="footer" className="border-t border-line px-7 pt-10">
-      <Reveal className="mt-12">
+    <footer
+      id="footer"
+      className="flex min-h-svh flex-col justify-end border-t border-line px-7 pt-40"
+    >
+      <Reveal>
         <p className={label}>Связь</p>
         <div className="mt-1 flex flex-wrap items-center gap-6">
           <a
