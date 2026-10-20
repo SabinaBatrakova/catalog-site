@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { Reveal } from "@/components/home/Reveal";
+import { Sticker } from "@/components/ui/Sticker";
+import type { StickerShape, StickerTone } from "@/components/ui/Sticker";
 
 type Step = {
   sticker: string;
   title: string;
   text: string;
   tilt: string;
-  stickerClass: string;
-  stickerHover: string;
+  tone: StickerTone;
+  shape: StickerShape;
+  stickerTilt: string;
 };
 
 const steps: Step[] = [
@@ -15,25 +19,27 @@ const steps: Step[] = [
     title: "Погружение в задачу",
     text: "Обсуждаем вашу идею, видение проекта, желаемый функционал и визуальный стиль. Определяем цели и основные задачи сайта.",
     tilt: "-rotate-2",
-    stickerClass: "border-ink bg-steel text-ink",
-    stickerHover:
-      "group-hover:border-accent group-hover:bg-accent group-hover:text-white",
+    tone: "steel",
+    shape: "c",
+    stickerTilt: "-rotate-[8deg]",
   },
   {
     sticker: "Структура",
     title: "Структура и согласование",
     text: "Создаю каркас сайта: продумываю расположение блоков, логику страниц и путь пользователя. Согласовываем структуру перед переходом к реализации.",
     tilt: "rotate-[1.5deg]",
-    stickerClass: "border-ink bg-line text-ink",
-    stickerHover: "group-hover:border-ink group-hover:bg-steel group-hover:text-ink",
+    tone: "line",
+    shape: "b",
+    stickerTilt: "rotate-[5deg]",
   },
   {
     sticker: "Готово",
     title: "Реализация и финальная версия",
     text: "Разрабатываю сайт, проверяю его работу и адаптацию под разные устройства. Вношу согласованные правки и подготавливаю итоговую версию к публикации.",
     tilt: "-rotate-1",
-    stickerClass: "border-accent bg-accent text-white",
-    stickerHover: "group-hover:border-ink group-hover:bg-ink group-hover:text-white",
+    tone: "accent",
+    shape: "a",
+    stickerTilt: "-rotate-6",
   },
 ];
 
@@ -61,6 +67,33 @@ function Arrow({ className = "" }: { className?: string }) {
   );
 }
 
+function StepCard({ step }: { step: Step }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`relative border-[1.5px] border-ink bg-paper p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-1.5 motion-safe:hover:rotate-0 ${step.tilt}`}
+    >
+      <div className="absolute -left-3 -top-4 z-10">
+        <Sticker
+          tone={step.tone}
+          shape={step.shape}
+          tilt={step.stickerTilt}
+          active={hovered}
+        >
+          {step.sticker}
+        </Sticker>
+      </div>
+      <h3 className="mt-2 font-display text-lg font-semibold uppercase leading-none">
+        {step.title}
+      </h3>
+      <p className="mt-3 font-serif text-[15px] leading-[1.55]">{step.text}</p>
+    </div>
+  );
+}
+
 export function Process() {
   return (
     <section id="process" className="scroll-mt-16 px-7 py-24 md:py-32">
@@ -77,21 +110,7 @@ export function Process() {
         {steps.map((step, i) => (
           <li key={step.sticker} className="relative">
             <Reveal delay={i * 150}>
-              <div
-                className={`group relative border-[1.5px] border-ink bg-paper p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-1.5 motion-safe:hover:rotate-0 ${step.tilt}`}
-              >
-                <span
-                  className={`absolute -left-3 -top-4 -rotate-[8deg] rounded-[50%] border-[1.5px] px-4 py-1.5 font-display text-[11px] font-medium uppercase tracking-[0.08em] transition-all duration-500 ease-out motion-safe:group-hover:-rotate-[14deg] ${step.stickerClass} ${step.stickerHover}`}
-                >
-                  {step.sticker}
-                </span>
-                <h3 className="mt-2 font-display text-lg font-semibold uppercase leading-none">
-                  {step.title}
-                </h3>
-                <p className="mt-3 font-serif text-[15px] leading-[1.55]">
-                  {step.text}
-                </p>
-              </div>
+              <StepCard step={step} />
             </Reveal>
 
             {i < steps.length - 1 && (

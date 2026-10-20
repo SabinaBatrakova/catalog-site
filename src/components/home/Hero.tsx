@@ -1,6 +1,7 @@
+import { Sticker } from "@/components/ui/Sticker";
 import { contacts } from "@/lib/contacts";
 
-const services = ["Лендинги", "Визитки", "Каталоги"];
+const services = ["Сайты", "Лендинги", "Визитки", "Каталоги"];
 
 export function Hero() {
   return (
@@ -12,14 +13,16 @@ export function Hero() {
           <span className="block">меркам</span>
         </h1>
 
-        <a
-          href={contacts[0].href}
-          target="_blank"
-          rel="noreferrer"
-          className="absolute right-4 top-24 -rotate-12 rounded-[50%] bg-accent px-5 py-2 font-display text-xs font-medium uppercase tracking-[0.08em] text-white md:right-12 md:top-20"
-        >
-          Написать ↗
-        </a>
+        <div className="absolute right-4 top-24 md:right-12 md:top-20">
+          <Sticker
+            href={contacts[0].href}
+            tone="accent"
+            shape="b"
+            tilt="-rotate-12"
+          >
+            Написать ↗
+          </Sticker>
+        </div>
       </div>
 
       <div className="mt-12 flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
