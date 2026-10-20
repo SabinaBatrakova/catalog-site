@@ -34,18 +34,29 @@ const items: CarouselItem[] = [
   },
 ];
 
-const RADIUS_X = 200;
+const RADIUS_X_MAX = 360;
+const RADIUS_X_MOBILE = 190;
 const RADIUS_Y = 22;
 const DEAD_ZONE = 0.3;
-const MAX_SPEED = 0.03;
+const MAX_SPEED = 0.01;
 const PIXELS_PER_CARD = 120;
 const TILTS = [-3, 2.5, -2];
 
-const caption =
-  "font-display text-xs font-medium uppercase tracking-[0.08em]";
+const caption = "font-display text-xs font-medium uppercase tracking-[0.08em]";
 
 export function WorksCarousel() {
   const [rotation, setRotation] = useState(0);
+  const [viewport, setViewport] = useState(() => window.innerWidth);
+
+  useEffect(() => {
+    const onResize = () => setViewport(window.innerWidth);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const radiusX =
+    viewport >= 768 ? Math.min(RADIUS_X_MAX, viewport * 0.3) : RADIUS_X_MOBILE;
+
   const velocityRef = useRef(0);
   const draggingRef = useRef(false);
   const touchXRef = useRef(0);
@@ -130,7 +141,7 @@ export function WorksCarousel() {
         {items.map((item, i) => {
           const angle = ((i - rotation) * 2 * Math.PI) / count;
           const depth = Math.cos(angle);
-          const x = Math.sin(angle) * RADIUS_X;
+          const x = Math.sin(angle) * radiusX;
           const y = (depth - 1) * RADIUS_Y;
           const closeness = (depth + 1) / 2;
           const scale = 0.72 + 0.28 * closeness;
