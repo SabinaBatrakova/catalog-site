@@ -1,16 +1,34 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import type { PointerEvent, TouchEvent } from "react";
+import type { CSSProperties, PointerEvent, ReactNode, TouchEvent } from "react";
 
 type CarouselItem = {
   id: string;
   title: string;
   label: string;
   href: string;
-  previewSrc: string;
+  external?: boolean;
+  image?: string;
+  previewSrc?: string;
 };
 
 const items: CarouselItem[] = [
+  {
+    id: "ipodo-expert-lab",
+    title: "iPODO Expert Lab",
+    label: "Проект",
+    href: "https://ipodoexpertlab.com",
+    external: true,
+    image: "/public/works/ipodoexpertlab.webp",
+  },
+  {
+    id: "ipodo",
+    title: "iPODO",
+    label: "В работе",
+    href: "https://ipodo.me",
+    external: true,
+    image: "/public/works/work-ipodo.webp",
+  },
   {
     id: "beauty-1",
     title: "Услуги и красота",
@@ -40,9 +58,78 @@ const RADIUS_Y = 22;
 const DEAD_ZONE = 0.3;
 const MAX_SPEED = 0.01;
 const PIXELS_PER_CARD = 120;
-const TILTS = [-3, 2.5, -2];
+const TILTS = [-3, 2.5, -2, 3, -1.5];
 
 const caption = "font-display text-xs font-medium uppercase tracking-[0.08em]";
+
+function Preview({ item }: { item: CarouselItem }) {
+  const [failed, setFailed] = useState(false);
+
+  if (item.image && !failed) {
+    return (
+      <img
+        src={item.image}
+        alt={`Превью сайта ${item.title}`}
+        width={800}
+        height={500}
+        loading="lazy"
+        decoding="async"
+        onError={() => setFailed(true)}
+        className="h-full w-full object-cover object-top"
+      />
+    );
+  }
+
+  if (item.previewSrc) {
+    return (
+      <iframe
+        src={item.previewSrc}
+        title={item.title}
+        scrolling="no"
+        className="pointer-events-none absolute left-0 top-0 h-[800px] w-[1280px] origin-top-left scale-[0.165]"
+      />
+    );
+  }
+
+  return (
+    <div
+      aria-hidden="true"
+      className="flex h-full w-full items-center justify-center bg-line font-display text-[11px] font-medium uppercase tracking-[0.08em] text-muted"
+    >
+      Скриншот
+    </div>
+  );
+}
+
+type CardLinkProps = {
+  item: CarouselItem;
+  className: string;
+  style: CSSProperties;
+  children: ReactNode;
+};
+
+function CardLink({ item, className, style, children }: CardLinkProps) {
+  if (item.external) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${item.title}, откроется в новой вкладке`}
+        className={className}
+        style={style}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={item.href} className={className} style={style}>
+      {children}
+    </Link>
+  );
+}
 
 export function WorksCarousel() {
   const [rotation, setRotation] = useState(0);
@@ -149,9 +236,9 @@ export function WorksCarousel() {
           const isFront = i === frontIndex;
 
           return (
-            <Link
+            <CardLink
               key={item.id}
-              to={item.href}
+              item={item}
               className={`absolute left-1/2 top-1/2 w-[230px] border-[1.5px] border-ink bg-paper p-[9px] ${
                 isFront ? "" : "pointer-events-none"
               }`}
@@ -162,12 +249,7 @@ export function WorksCarousel() {
               }}
             >
               <div className="relative h-[132px] w-full overflow-hidden">
-                <iframe
-                  src={item.previewSrc}
-                  title={item.title}
-                  scrolling="no"
-                  className="pointer-events-none absolute left-0 top-0 h-[800px] w-[1280px] origin-top-left scale-[0.165]"
-                />
+                <Preview item={item} />
               </div>
               <div className="flex items-baseline justify-between gap-2 pt-[9px]">
                 <span className="font-narrow font-serif text-[22px] leading-none">
@@ -177,7 +259,7 @@ export function WorksCarousel() {
                   {item.label}
                 </span>
               </div>
-            </Link>
+            </CardLink>
           );
         })}
       </div>
