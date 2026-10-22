@@ -1,10 +1,11 @@
 import { rentalContent } from "@/templates/rental-1/content";
+import { Hero } from "@/templates/rental-1/Hero";
 
 export function RentalPage() {
-  const { nav, wordmark } = rentalContent;
+  const { nav } = rentalContent;
 
   return (
-    <div className="min-h-screen bg-trip-cream font-trip-text text-trip-ink">
+    <div className="min-h-screen overflow-x-clip bg-trip-cream font-trip-text text-trip-ink">
       <header className="flex items-center justify-between px-6 py-4 font-trip-mono text-[11px] md:px-7 md:text-xs">
         <span className="font-medium">MS ✉</span>
         <nav className="flex items-center gap-4 md:gap-6">
@@ -26,9 +27,7 @@ export function RentalPage() {
         </nav>
       </header>
 
-      <h1 className="whitespace-nowrap px-6 text-center font-trip-title text-[clamp(30px,10vw,200px)] font-semibold uppercase leading-[0.95] tracking-[-0.04em] text-trip-accent md:px-7">
-        {wordmark}
-      </h1>
+      <Hero />
     </div>
   );
 }
