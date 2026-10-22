@@ -8,9 +8,22 @@
   --color-accent: #8e1b4a;
   --color-steel: #6c92a0;
 
+  --color-trip-cream: #ede8df;
+  --color-trip-card: #fbf8f2;
+  --color-trip-ink: #1d1a17;
+  --color-trip-muted: #6b655d;
+  --color-trip-accent: #f04e0f;
+  --color-trip-cobalt: #3d5a9e;
+  --color-trip-sage: #8aa8a0;
+  --color-trip-sand: #e2b98c;
+
   --font-display: "Oswald", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Roboto Serif", ui-serif, Georgia, serif;
   --font-hand: "Caveat", cursive;
+
+  --font-trip-title: "Unbounded", ui-sans-serif, system-ui, sans-serif;
+  --font-trip-mono: "Martian Mono", ui-monospace, monospace;
+  --font-trip-text: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 @utility font-narrow {
@@ -22,6 +35,7 @@
   from {
     mask-position: 0 0;
   }
+
   to {
     mask-position: 40px 0;
   }
@@ -30,7 +44,6 @@
 @utility sticker-wave {
   height: 14px;
   background: var(--sticker-fill);
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14'><path d='M0,14 L0,7 Q10,0 20,7 T40,7 L40,14 Z'/></svg>")
-    repeat-x 0 0 / 40px 14px;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14'><path d='M0,14 L0,7 Q10,0 20,7 T40,7 L40,14 Z'/></svg>") repeat-x 0 0 / 40px 14px;
   animation: sticker-wave 3s linear infinite;
 }
