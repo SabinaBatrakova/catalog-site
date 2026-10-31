@@ -1,4 +1,5 @@
 import { rentalContent } from "@/templates/rental-1/content";
+import { Note } from "@/templates/rental-1/Note.tsx";
 import { Postcard } from "@/templates/rental-1/Postcard";
 import { Postmark } from "@/templates/rental-1/Postmark";
 
@@ -7,19 +8,21 @@ export function Hero() {
 
   return (
     <section>
-      <h1 className="relative z-[5] whitespace-nowrap px-6 text-center font-trip-title text-[clamp(30px,10vw,200px)] font-semibold uppercase leading-[0.95] tracking-[-0.02em] text-trip-accent md:px-7">
+      <h1 className="pointer-events-none relative z-[13] whitespace-nowrap px-6 text-center font-trip-title text-[clamp(30px,10vw,200px)] font-semibold uppercase leading-[0.95] tracking-[-0.02em] text-trip-accent md:px-7">
         {wordmark}
       </h1>
 
-      <div className="relative flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-10 pt-8 md:-mt-6 md:block md:h-[600px] md:overflow-visible md:p-0">
+      <div className="relative flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-10 pt-8 md:-mt-[2vw] md:block md:h-[38vw] md:overflow-visible md:p-0">
         {postcards.map((card, i) => (
           <Postcard key={card.id} card={card} number={i + 1} />
         ))}
 
+        <Note />
+
         <Postmark
           ring={postmark.ring}
           date={postmark.date}
-          className="absolute left-[36%] top-[96px] z-[16] hidden -rotate-[14deg] opacity-85 md:block"
+          className="absolute z-30 hidden -rotate-[14deg] opacity-90 md:left-[34%] md:top-[9vw] md:block"
         />
       </div>
 

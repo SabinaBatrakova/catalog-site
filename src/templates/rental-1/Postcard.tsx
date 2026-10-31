@@ -28,8 +28,8 @@ export function Postcard({ card, number }: PostcardProps) {
           <img
             src={card.image}
             alt={`${card.place}, ${card.city}`}
-            width={800}
-            height={600}
+            width={600}
+            height={400}
             loading="lazy"
             decoding="async"
             className="h-full w-full object-cover"
