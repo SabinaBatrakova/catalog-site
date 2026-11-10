@@ -47,3 +47,15 @@
   mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14'><path d='M0,14 L0,7 Q10,0 20,7 T40,7 L40,14 Z'/></svg>") repeat-x 0 0 / 40px 14px;
   animation: sticker-wave 3s linear infinite;
 }
+
+@utility stamp-edge {
+  --r: 5px; /* радиус «зубчика» */
+  --p: 20px; /* шаг между зубчиками */
+  -webkit-mask:
+    radial-gradient(circle var(--r) at 50% 0, #0000 98%, #000) top / var(--p) 100% repeat-x,
+    radial-gradient(circle var(--r) at 50% 100%, #0000 98%, #000) bottom / var(--p) 100% repeat-x,
+    radial-gradient(circle var(--r) at 0 50%, #0000 98%, #000) left / 100% var(--p) repeat-y,
+    radial-gradient(circle var(--r) at 100% 50%, #0000 98%, #000) right / 100% var(--p) repeat-y;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}

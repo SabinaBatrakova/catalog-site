@@ -81,6 +81,7 @@ export const rentalContent: RentalContent = {
       id: "boka",
       place: "Бока-Которская",
       city: "Котор",
+      image: "/rental/boka.webp",
       tone: "bg-trip-cobalt text-white/80",
       frame:
         "md:left-[3%] md:top-[4vw] md:w-[clamp(150px,15vw,300px)] md:-rotate-[8deg] md:z-[6]",
@@ -88,7 +89,8 @@ export const rentalContent: RentalContent = {
     {
       id: "old-town",
       place: "Старый город",
-      city: "Будва",
+      city: "Пераст",
+      image: "/rental/old-town.webp",
       tone: "bg-trip-accent text-white/80",
       frame:
         "md:left-[23%] md:top-[1vw] md:w-[clamp(150px,15vw,300px)] md:rotate-[5deg] md:z-[9]",
@@ -96,29 +98,32 @@ export const rentalContent: RentalContent = {
     {
       id: "boat",
       place: "Прогулка на лодке",
-      city: "Свети-Стефан",
+      city: "Скадарское озеро",
+      image: "/rental/boat.webp",
       tone: "bg-trip-ink text-white/80",
       frame:
         "md:left-[43%] md:top-[3.5vw] md:w-[clamp(150px,15vw,300px)] md:-rotate-[4deg] md:z-[8]",
-      stamp: { price: "60€", unit: "лодка", tilt: "-rotate-[8deg]" },
+      stamp: { price: "260€", unit: "лодка", tilt: "-rotate-[8deg]" },
     },
     {
       id: "beach",
-      place: "Пляж на закате",
-      city: "Херцег-Нови",
+      place: "Морской день",
+      city: "Каменово",
+      image: "/rental/beach.webp",
       tone: "bg-trip-sand text-trip-ink/70",
       frame:
-        "md:left-[12.5%] md:top-[15vw] md:w-[clamp(160px,16vw,320px)] md:rotate-[4deg] md:z-[11]",
-      stamp: { price: "40€", unit: "ночь", tilt: "rotate-6" },
+        "md:left-[12.5%] md:top-[17.5vw] md:w-[clamp(160px,16vw,320px)] md:rotate-[4deg] md:z-[11]",
+      stamp: { price: "85€", unit: "ночь", tilt: "rotate-6" },
     },
     {
       id: "mountains",
       place: "Горные тропы",
-      city: "Дурмитор",
+      city: "Каньон реки Морача",
+      image: "/rental/mountains-canyon.webp",
       tone: "bg-trip-cobalt text-white/80",
       frame:
-        "md:left-[32.5%] md:top-[16vw] md:w-[clamp(160px,16vw,320px)] md:-rotate-[6deg] md:z-[12]",
-      stamp: { price: "25€", unit: "тур", tilt: "-rotate-6" },
+        "md:left-[32.5%] md:top-[18.5vw] md:w-[clamp(160px,16vw,320px)] md:-rotate-[6deg] md:z-[12]",
+      stamp: { price: "45€", unit: "тур", tilt: "-rotate-6" },
     },
   ],
   note: {
@@ -143,9 +148,10 @@ export const rentalContent: RentalContent = {
     {
       id: "seaside",
       title: "Апартаменты у моря",
-      meta: "2 гостя · 1 спальня · Будва",
-      price: "40€",
+      meta: "2 гостя · 1 спальня",
+      price: "от 55€",
       unit: "ночь",
+      image: "/rental/stay-seaside.webp",
       tone: "bg-trip-cobalt text-white/80",
       tilt: "-rotate-2",
       offset: "",
@@ -153,9 +159,10 @@ export const rentalContent: RentalContent = {
     {
       id: "old-town-house",
       title: "Дом в старом городе",
-      meta: "4 гостя · 2 спальни · Котор",
-      price: "65",
+      meta: "4 гостя · 2 спальни",
+      price: "от 90€",
       unit: "ночь",
+      image: "/public/rental/stay-old-town.webp",
       tone: "bg-trip-accent text-white/80",
       tilt: "rotate-[1.5deg]",
       offset: "lg:mt-6",
@@ -163,9 +170,10 @@ export const rentalContent: RentalContent = {
     {
       id: "villa",
       title: "Вилла с садом",
-      meta: "6 гостей · 3 спальни · Улцинь",
-      price: "120€",
+      meta: "6 гостей · 3 спальни",
+      price: "от 150€",
       unit: "ночь",
+      image: "/public/rental/stay-villa.webp",
       tone: "bg-trip-sage text-trip-ink/70",
       tilt: "-rotate-1",
       offset: "",
@@ -175,14 +183,14 @@ export const rentalContent: RentalContent = {
     {
       id: "boat",
       title: "Морская прогулка",
-      meta: "3 часа · до 8 гостей · закат",
-      price: "60€",
+      meta: "3 часа · вся лодка до 8 гостей · закат",
+      price: "260€",
     },
     {
       id: "coast",
       title: "Тур по побережью",
-      meta: "Весь день · до 6 гостей · Будва, Котор, Пераст",
-      price: "25€",
+      meta: "Весь день · цена за гостя · Будва, Котор, Пераст",
+      price: "45€",
     },
   ],
 };
