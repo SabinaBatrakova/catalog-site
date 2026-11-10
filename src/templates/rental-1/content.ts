@@ -55,7 +55,8 @@ export type RentalContent = {
     date: string;
   };
   band: {
-    label: string;
+    title: string;
+    text: string;
     button: string;
   };
   sections: {
@@ -82,7 +83,7 @@ export const rentalContent: RentalContent = {
       city: "Котор",
       tone: "bg-trip-cobalt text-white/80",
       frame:
-        "md:left-[4%] md:top-[2vw] md:w-[clamp(150px,17vw,340px)] md:-rotate-[8deg] md:z-[6]",
+        "md:left-[3%] md:top-[4vw] md:w-[clamp(150px,15vw,300px)] md:-rotate-[8deg] md:z-[6]",
     },
     {
       id: "old-town",
@@ -90,7 +91,7 @@ export const rentalContent: RentalContent = {
       city: "Будва",
       tone: "bg-trip-accent text-white/80",
       frame:
-        "md:left-[27%] md:top-[0.5vw] md:w-[clamp(150px,17vw,340px)] md:rotate-[5deg] md:z-[9]",
+        "md:left-[23%] md:top-[1vw] md:w-[clamp(150px,15vw,300px)] md:rotate-[5deg] md:z-[9]",
     },
     {
       id: "boat",
@@ -98,7 +99,7 @@ export const rentalContent: RentalContent = {
       city: "Свети-Стефан",
       tone: "bg-trip-ink text-white/80",
       frame:
-        "md:left-[50%] md:top-[3vw] md:w-[clamp(150px,17vw,340px)] md:-rotate-[4deg] md:z-[8]",
+        "md:left-[43%] md:top-[3.5vw] md:w-[clamp(150px,15vw,300px)] md:-rotate-[4deg] md:z-[8]",
       stamp: { price: "60€", unit: "лодка", tilt: "-rotate-[8deg]" },
     },
     {
@@ -107,7 +108,7 @@ export const rentalContent: RentalContent = {
       city: "Херцег-Нови",
       tone: "bg-trip-sand text-trip-ink/70",
       frame:
-        "md:left-[13%] md:top-[12vw] md:w-[clamp(160px,18vw,360px)] md:rotate-[4deg] md:z-[11]",
+        "md:left-[12.5%] md:top-[15vw] md:w-[clamp(160px,16vw,320px)] md:rotate-[4deg] md:z-[11]",
       stamp: { price: "40€", unit: "ночь", tilt: "rotate-6" },
     },
     {
@@ -116,26 +117,27 @@ export const rentalContent: RentalContent = {
       city: "Дурмитор",
       tone: "bg-trip-cobalt text-white/80",
       frame:
-        "md:left-[38%] md:top-[13vw] md:w-[clamp(160px,18vw,360px)] md:-rotate-[6deg] md:z-[12]",
+        "md:left-[32.5%] md:top-[16vw] md:w-[clamp(160px,16vw,320px)] md:-rotate-[6deg] md:z-[12]",
       stamp: { price: "25€", unit: "тур", tilt: "-rotate-6" },
     },
   ],
   note: {
     greeting: "Привет из Черногории!",
     text: "Жильё, прогулки на лодке и туры по побережью. Бронирование напрямую, без посредников.",
-    button: "Забронировать →",
+    button: "Забронировать",
   },
   postmark: {
     ring: "BUDVA · JUNE · 2026 · BUDVA ·",
     date: "12.06",
   },
   band: {
-    label: "Выбери открытку",
-    button: "Открыть место →",
+    title: "Ваше место у моря. Вдали от суеты.",
+    text: "Просыпайтесь под шум волн, наслаждайтесь завтраками с видом на Адриатику и встречайте закаты в атмосфере спокойствия и уединения. Прямое бронирование у владельцев — без посредников и лишних переплат.",
+    button: "Выбрать жильё",
   },
   sections: {
-    stays: { title: "Жильё у моря", link: "Все варианты →" },
-    tours: { title: "Туры и прогулки", cta: "Выбрать →" },
+    stays: { title: "Жильё у моря", link: "Все варианты" },
+    tours: { title: "Туры и прогулки", cta: "Выбрать" },
   },
   stays: [
     {
@@ -152,7 +154,7 @@ export const rentalContent: RentalContent = {
       id: "old-town-house",
       title: "Дом в старом городе",
       meta: "4 гостя · 2 спальни · Котор",
-      price: "65€",
+      price: "65",
       unit: "ночь",
       tone: "bg-trip-accent text-white/80",
       tilt: "rotate-[1.5deg]",
