@@ -1,6 +1,7 @@
-import { rentalContent } from "@/templates/rental-1/content";
+import { useRentalContent } from "@/templates/rental-1/useRentalContent";
 
 export function Tours() {
+  const rentalContent = useRentalContent();
   const { sections, tours } = rentalContent;
 
   return (

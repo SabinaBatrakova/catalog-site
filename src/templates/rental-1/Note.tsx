@@ -1,6 +1,7 @@
-import { rentalContent } from "@/templates/rental-1/content";
+import { useRentalContent } from "@/templates/rental-1/useRentalContent";
 
 export function Note() {
+  const rentalContent = useRentalContent();
   const { note } = rentalContent;
 
   return (

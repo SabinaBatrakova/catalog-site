@@ -1,9 +1,10 @@
-import { rentalContent } from "@/templates/rental-1/content";
+import { useRentalContent } from "@/templates/rental-1/useRentalContent";
 import { Note } from "@/templates/rental-1/Note";
 import { Postcard } from "@/templates/rental-1/Postcard";
 import { Postmark } from "@/templates/rental-1/Postmark";
 
 export function Hero() {
+  const rentalContent = useRentalContent();
   const { wordmark, postcards, postmark, band } = rentalContent;
 
   return (

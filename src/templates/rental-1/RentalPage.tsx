@@ -1,9 +1,12 @@
-import { rentalContent } from "@/templates/rental-1/content";
+import { useRentalContent } from "@/templates/rental-1/useRentalContent";
+import { LangSwitch } from "@/templates/rental-1/LangSwitch";
 import { Hero } from "@/templates/rental-1/Hero";
 import { Stays } from "@/templates/rental-1/Stays";
 import { Tours } from "@/templates/rental-1/Tours";
 
 export function RentalPage() {
+  // Сначала получаем контент на текущем языке, потом берём из него нужное
+  const rentalContent = useRentalContent();
   const { brand, nav } = rentalContent;
 
   return (
@@ -40,6 +43,10 @@ export function RentalPage() {
           >
             {nav.about}
           </a>
+
+          {/* Переключатель языка RU / EN / SR */}
+          <LangSwitch />
+
           <a
             href="#book"
             className="rounded-full border-2 border-trip-accent px-5 py-1.5 font-hand text-[22px] font-normal leading-none text-trip-accent transition-colors duration-300 hover:bg-trip-accent hover:text-trip-cream"

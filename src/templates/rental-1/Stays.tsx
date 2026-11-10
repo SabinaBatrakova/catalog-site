@@ -1,4 +1,4 @@
-import { rentalContent } from "@/templates/rental-1/content";
+import { useRentalContent } from "@/templates/rental-1/useRentalContent";
 import type { Stay } from "@/templates/rental-1/content";
 
 function StayCard({ stay }: { stay: Stay }) {
@@ -48,6 +48,7 @@ function StayCard({ stay }: { stay: Stay }) {
 }
 
 export function Stays() {
+  const rentalContent = useRentalContent();
   const { sections, stays } = rentalContent;
 
   return (
