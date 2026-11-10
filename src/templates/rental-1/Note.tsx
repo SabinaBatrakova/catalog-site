@@ -17,7 +17,7 @@ export function Note() {
       </p>
       <a
         href="#book"
-        className="mt-5 inline-block rounded-full bg-trip-ink px-5 py-2 font-trip-mono text-[11px] uppercase tracking-[0.06em] text-trip-cream"
+        className="mt-5 inline-block rounded-full border-2 border-trip-ink px-6 py-2 font-hand text-[clamp(22px,1.8vw,30px)] font-normal leading-none text-trip-ink transition-colors duration-300 hover:bg-trip-ink hover:text-trip-cream"
       >
         {note.button}
       </a>
