@@ -2,7 +2,7 @@ import { Reveal } from "@/components/home/Reveal";
 import { WordsReveal } from "@/components/home/WordsReveal";
 
 const photo = {
-  src: "/public/sabina-catalog-site.webp",
+  src: "/sabina-catalog-site.webp",
   alt: "Сабина, веб-разработчик",
   caption: "",
 };

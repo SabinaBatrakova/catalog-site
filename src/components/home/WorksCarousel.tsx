@@ -19,7 +19,7 @@ const items: CarouselItem[] = [
     label: "Проект",
     href: "https://ipodoexpertlab.com",
     external: true,
-    image: "/public/works/ipodoexpertlab.webp",
+    image: "/works/ipodoexpertlab.webp",
   },
   {
     id: "ipodo",
@@ -27,7 +27,7 @@ const items: CarouselItem[] = [
     label: "В работе",
     href: "https://ipodo.me",
     external: true,
-    image: "/public/works/work-ipodo.webp",
+    image: "/works/work-ipodo.webp",
   },
   {
     id: "beauty-1",
