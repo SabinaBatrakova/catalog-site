@@ -25,7 +25,7 @@
   --font-trip-mono: "Martian Mono", ui-monospace, monospace;
   --font-trip-text: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
-    /* tennis-1 */
+  /* tennis-1 */
   --color-tn-green: #0f3d2e;
   --color-tn-clay: #c4532f;
   --color-tn-lime: #dfff4f;
@@ -33,6 +33,46 @@
   --color-tn-gray: #5d625b;
   --font-shoulders: "Big Shoulders Display", sans-serif;
   --font-inter: "Inter", sans-serif;
+
+  --animate-tn-up: tn-up 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-tn-slam: tn-slam 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  --animate-tn-fade: tn-fade 0.7s ease both;
+
+  @keyframes tn-up {
+    from {
+      transform: translateY(105%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes tn-slam {
+    0% {
+      opacity: 0;
+      transform: scale(1.8);
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes tn-fade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 
@@ -59,8 +99,10 @@
 }
 
 @utility stamp-edge {
-  --r: 5px; /* радиус «зубчика» */
-  --p: 20px; /* шаг между зубчиками */
+  --r: 5px;
+  /* радиус «зубчика» */
+  --p: 20px;
+  /* шаг между зубчиками */
   -webkit-mask:
     radial-gradient(circle var(--r) at 50% 0, #0000 98%, #000) top / var(--p) 100% repeat-x,
     radial-gradient(circle var(--r) at 50% 100%, #0000 98%, #000) bottom / var(--p) 100% repeat-x,
