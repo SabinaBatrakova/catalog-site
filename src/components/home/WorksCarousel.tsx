@@ -30,11 +30,11 @@ const items: CarouselItem[] = [
     image: "/works/work-ipodo.webp",
   },
   {
-    id: "beauty-1",
-    title: "Услуги и красота",
+    id: "tennis-1",
+    title: "Тренер по теннису",
     label: "Шаблон",
-    href: "/templates/beauty-1",
-    previewSrc: "/templates/beauty-1",
+    href: "/templates/tennis-1",
+    previewSrc: "/templates/tennis-1",
   },
   {
     id: "school-1",

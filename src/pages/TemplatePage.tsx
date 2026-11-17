@@ -7,17 +7,17 @@ import { Hero } from "@/components/blocks/Hero";
 import { ServicesGrid } from "@/components/blocks/ServicesGrid";
 import { ContactCTA } from "@/components/blocks/ContactCTA";
 import { Footer } from "@/components/blocks/Footer";
-import { beautyContent } from "@/templates/beauty-1/content";
 import { schoolContent } from "@/templates/school-1/content";
 import { RentalPage } from "@/templates/rental-1/RentalPage";
+import { TennisPage } from "@/templates/tennis-1/TennisPage";
 
 const registry: Record<string, TemplateContent> = {
-  "beauty-1": beautyContent,
   "school-1": schoolContent,
 };
 
 const customPages: Record<string, ComponentType> = {
   "rental-1": RentalPage,
+  "tennis-1": TennisPage,
 };
 
 export function TemplatePage() {

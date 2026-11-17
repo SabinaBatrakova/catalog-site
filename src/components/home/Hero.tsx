@@ -67,7 +67,7 @@ export function Hero() {
           <div className="mt-6 rotate-3 border-[1.5px] border-ink bg-paper p-2 pb-7">
             <div className="relative h-[132px] w-full overflow-hidden">
               <iframe
-                src="/templates/beauty-1"
+                src="/templates/tennis-1"
                 title="Превью работы"
                 scrolling="no"
                 className="pointer-events-none absolute left-0 top-0 h-[800px] w-[1280px] origin-top-left scale-[0.165]"
