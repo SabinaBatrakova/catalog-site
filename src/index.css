@@ -62,6 +62,14 @@
       opacity: 1;
       transform: scale(1);
     }
+
+    --animate-tn-blink: tn-blink 1s steps(2) infinite;
+
+    @keyframes tn-blink {
+      50% {
+        opacity: 0;
+      }
+    }
   }
 
   @keyframes tn-fade {
@@ -110,4 +118,133 @@
     radial-gradient(circle var(--r) at 100% 50%, #0000 98%, #000) right / 100% var(--p) repeat-y;
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
+}
+
+/* ---------- tennis-1: 3D court ---------- */
+.tn-stage {
+  --k: 0.55;
+  position: relative;
+  height: calc(300px * var(--k));
+  perspective: calc(900px * var(--k));
+  perspective-origin: 50% 0%;
+  overflow: hidden;
+}
+@media (min-width: 640px) { .tn-stage { --k: 0.9; } }
+@media (min-width: 768px) { .tn-stage { --k: 1.25; } }
+@media (min-width: 1024px) { .tn-stage { --k: 1.5; } }
+
+.tn-floor {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: calc(680px * var(--k));
+  height: calc(880px * var(--k));
+  margin-left: calc(-340px * var(--k));
+  transform-origin: 50% 100%;
+  transform: rotateX(30deg);
+  transform-style: preserve-3d;
+  animation: tn-tilt 1.6s 0.2s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+  background-color: var(--color-tn-clay);
+  background-image:
+    radial-gradient(rgb(255 220 190 / 0.2) 1.2px, transparent 1.5px),
+    radial-gradient(rgb(90 25 10 / 0.18) 1.2px, transparent 1.5px);
+  background-size: 9px 9px, 13px 13px;
+  background-position: 0 0, 4px 6px;
+}
+.tn-floor svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.tn-line {
+  fill: none;
+  stroke: var(--color-tn-cream);
+  stroke-width: 6;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: tn-draw 1.2s 1s ease forwards;
+}
+
+.tn-net {
+  position: absolute;
+  left: calc(20px * var(--k));
+  width: calc(640px * var(--k));
+  top: calc(394px * var(--k));
+  height: calc(46px * var(--k));
+  transform-origin: 50% 100%;
+  transform: rotateX(-90deg);
+  opacity: 0;
+  animation: tn-appear 0.4s 1.8s forwards;
+  background-image:
+    linear-gradient(90deg, rgb(15 61 46 / 0.55) 1px, transparent 1px),
+    linear-gradient(rgb(15 61 46 / 0.55) 1px, transparent 1px);
+  background-size: 7px 7px;
+  border-top: calc(5px * var(--k)) solid var(--color-tn-cream);
+}
+.tn-post {
+  position: absolute;
+  bottom: 0;
+  width: calc(8px * var(--k));
+  height: calc(52px * var(--k));
+  background: var(--color-tn-green);
+  border-radius: 2px;
+}
+.tn-post--left { left: calc(-4px * var(--k)); }
+.tn-post--right { right: calc(-4px * var(--k)); }
+
+.tn-mover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: tn-run 2.6s 2.25s ease-in-out infinite alternate;
+}
+.tn-shadow {
+  position: absolute;
+  left: calc(-14px * var(--k));
+  top: calc(-7px * var(--k));
+  width: calc(28px * var(--k));
+  height: calc(14px * var(--k));
+  border-radius: 50%;
+  background: rgb(70 20 8 / 0.4);
+  animation: tn-shadow 1.3s 2.25s ease-in-out infinite alternate;
+}
+.tn-lift {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+  animation: tn-arc 1.3s 2.25s ease-in-out infinite alternate;
+}
+.tn-ball {
+  position: absolute;
+  left: calc(-13px * var(--k));
+  top: calc(-13px * var(--k));
+  width: calc(26px * var(--k));
+  height: calc(26px * var(--k));
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f4ff9c, #d6f23a 60%, #94ad1c);
+  transform: rotateX(-70deg);
+  box-shadow: inset 0 0 0 1.5px var(--color-tn-green);
+}
+
+@keyframes tn-tilt { to { transform: rotateX(70deg); } }
+@keyframes tn-draw { to { stroke-dashoffset: 0; } }
+@keyframes tn-appear { to { opacity: 1; } }
+@keyframes tn-run {
+  from { opacity: 1; transform: translate(calc(250px * var(--k)), calc(700px * var(--k))); }
+  to { opacity: 1; transform: translate(calc(450px * var(--k)), calc(130px * var(--k))); }
+}
+@keyframes tn-arc {
+  0%, 100% { transform: translateZ(calc(14px * var(--k))); }
+  50% { transform: translateZ(calc(150px * var(--k))); }
+}
+@keyframes tn-shadow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.55); opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tn-floor { animation: none; transform: rotateX(70deg); }
+  .tn-line { animation: none; stroke-dashoffset: 0; }
+  .tn-net { animation: none; opacity: 1; }
+  .tn-mover { display: none; }
 }

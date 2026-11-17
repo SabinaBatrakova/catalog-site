@@ -1,6 +1,8 @@
 import { tennisContent } from "./content";
 import { TennisHeader } from "./components/TennisHeader";
 import { HeroTitle } from "./components/HeroTitle";
+import { Scoreboard } from "./components/Scoreboard";
+import { Court3D } from "./components/Court3D";
 
 export function TennisPage() {
   const c = tennisContent;
@@ -16,6 +18,21 @@ export function TennisPage() {
           titleAccent={c.hero.titleAccent}
           text={c.hero.text}
         />
+        <div className="relative mt-6">
+          <Court3D />
+          <div
+            className="mt-4 animate-tn-fade md:absolute md:right-4 md:top-4 md:mt-0 motion-reduce:animate-none"
+            style={{ animationDelay: "2.4s" }}
+          >
+            <Scoreboard
+              court={c.scoreboard.court}
+              role={c.scoreboard.role}
+              rows={c.scoreboard.rows}
+              cta={c.scoreboard.cta}
+              startDelay={2500}
+            />
+          </div>
+        </div>
       </section>
 
       <section id="programs" className="mx-auto max-w-6xl px-6 py-10">
