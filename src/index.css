@@ -24,7 +24,17 @@
   --font-trip-title: "Unbounded", ui-sans-serif, system-ui, sans-serif;
   --font-trip-mono: "Martian Mono", ui-monospace, monospace;
   --font-trip-text: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+    /* tennis-1 */
+  --color-tn-green: #0f3d2e;
+  --color-tn-clay: #c4532f;
+  --color-tn-lime: #dfff4f;
+  --color-tn-cream: #f4efe6;
+  --color-tn-gray: #5d625b;
+  --font-shoulders: "Big Shoulders Display", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
+
 
 @utility font-narrow {
   font-variation-settings: "wdth" 62.5;
