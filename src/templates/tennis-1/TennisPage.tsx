@@ -8,6 +8,8 @@ import { Programs } from "./components/Programs";
 import { Pricing } from "./components/Pricing";
 import { About } from "./components/About";
 import { Faq } from "./components/Faq";
+import { Booking } from "./components/Booking";
+import { TennisFooter } from "./components/TennisFooter";
 
 export function TennisPage() {
   const c = tennisContent;
@@ -45,12 +47,12 @@ export function TennisPage() {
       <Pricing data={c.pricing} />
       <About data={c.about} />
       <Faq data={c.faq} />
-
-      <section id="book" className="bg-tn-clay px-6 py-10 text-white">
-        <p className="mx-auto max-w-6xl font-shoulders text-5xl font-black text-tn-lime">
-          {c.booking.score}
-        </p>
-      </section>
+      <Booking data={c.booking} />
+      <TennisFooter
+        data={c.footer}
+        titleLines={c.hero.titleLines}
+        titleAccent={c.hero.titleAccent}
+      />
     </div>
   );
 }
