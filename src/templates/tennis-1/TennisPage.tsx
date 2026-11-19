@@ -3,6 +3,7 @@ import { TennisHeader } from "./components/TennisHeader";
 import { HeroTitle } from "./components/HeroTitle";
 import { Scoreboard } from "./components/Scoreboard";
 import { Court3D } from "./components/Court3D";
+import { ScoreNav } from "./components/ScoreNav";
 
 export function TennisPage() {
   const c = tennisContent;
@@ -33,6 +34,7 @@ export function TennisPage() {
             />
           </div>
         </div>
+        <ScoreNav items={c.nav} startDelay={3200} />
       </section>
 
       <section id="programs" className="mx-auto max-w-6xl px-6 py-10">
