@@ -37,12 +37,12 @@
   --animate-tn-up: tn-up 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-tn-slam: tn-slam 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
   --animate-tn-fade: tn-fade 0.7s ease both;
+  --animate-tn-blink: tn-blink 1s steps(2) infinite;
 
   @keyframes tn-up {
     from {
       transform: translateY(105%);
     }
-
     to {
       transform: translateY(0);
     }
@@ -53,22 +53,12 @@
       opacity: 0;
       transform: scale(1.8);
     }
-
     60% {
       opacity: 1;
     }
-
     100% {
       opacity: 1;
       transform: scale(1);
-    }
-
-    --animate-tn-blink: tn-blink 1s steps(2) infinite;
-
-    @keyframes tn-blink {
-      50% {
-        opacity: 0;
-      }
     }
   }
 
@@ -76,13 +66,17 @@
     from {
       opacity: 0;
     }
-
     to {
       opacity: 1;
     }
   }
-}
 
+  @keyframes tn-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
 
 @utility font-narrow {
   font-variation-settings: "wdth" 62.5;
@@ -93,7 +87,6 @@
   from {
     mask-position: 0 0;
   }
-
   to {
     mask-position: 40px 0;
   }
@@ -189,13 +182,13 @@
 .tn-post--left { left: calc(-4px * var(--k)); }
 .tn-post--right { right: calc(-4px * var(--k)); }
 
-.tn-mover {
+/* ball shadow: lies flat on the floor (inside .tn-floor) */
+.tn-shadow-track {
   position: absolute;
   left: 0;
   top: 0;
-  transform-style: preserve-3d;
   opacity: 0;
-  animation: tn-run 2.6s 2.25s ease-in-out infinite alternate;
+  animation: tn-shadow-run 2.6s 2.25s ease-in-out infinite alternate;
 }
 .tn-shadow {
   position: absolute;
@@ -204,47 +197,79 @@
   width: calc(28px * var(--k));
   height: calc(14px * var(--k));
   border-radius: 50%;
-  background: rgb(70 20 8 / 0.4);
-  animation: tn-shadow 1.3s 2.25s ease-in-out infinite alternate;
+  background: rgb(70 20 8 / 0.45);
+  filter: blur(1px);
+  animation: tn-shadow-size 2.6s 2.25s ease-in-out infinite alternate;
 }
-.tn-lift {
+
+/* ball: 2D element above the court, always round */
+.tn-ball-track {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 0;
-  transform-style: preserve-3d;
-  animation: tn-arc 1.3s 2.25s ease-in-out infinite alternate;
+  opacity: 0;
+  animation: tn-ball-run 2.6s 2.25s ease-in-out infinite alternate;
+}
+.tn-ball-lift {
+  animation: tn-ball-lift 2.6s 2.25s infinite alternate;
 }
 .tn-ball {
-  position: absolute;
-  left: calc(-13px * var(--k));
-  top: calc(-13px * var(--k));
-  width: calc(26px * var(--k));
-  height: calc(26px * var(--k));
+  position: relative;
+  left: calc(-14px * var(--k));
+  top: calc(-14px * var(--k));
+  width: calc(28px * var(--k));
+  height: calc(28px * var(--k));
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #f4ff9c, #d6f23a 60%, #94ad1c);
-  transform: rotateX(-70deg);
-  box-shadow: inset 0 0 0 1.5px var(--color-tn-green);
+  overflow: hidden;
+  background: radial-gradient(circle at 32% 28%, #fbffd6 0%, #e6f84e 25%, #c8df24 60%, #7d9112 100%);
+  box-shadow:
+    inset calc(-3px * var(--k)) calc(-4px * var(--k)) calc(6px * var(--k)) rgb(0 0 0 / 0.28),
+    0 calc(2px * var(--k)) calc(4px * var(--k)) rgb(0 0 0 / 0.25);
 }
+.tn-seam {
+  position: absolute;
+  inset: 0;
+  animation: tn-spin 0.6s linear infinite;
+}
+.tn-seam::before,
+.tn-seam::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: calc(2px * var(--k)) solid rgb(255 255 255 / 0.85);
+}
+.tn-seam::before { left: -64%; }
+.tn-seam::after { left: 64%; }
 
 @keyframes tn-tilt { to { transform: rotateX(70deg); } }
 @keyframes tn-draw { to { stroke-dashoffset: 0; } }
 @keyframes tn-appear { to { opacity: 1; } }
-@keyframes tn-run {
+@keyframes tn-shadow-run {
   from { opacity: 1; transform: translate(calc(250px * var(--k)), calc(700px * var(--k))); }
   to { opacity: 1; transform: translate(calc(450px * var(--k)), calc(130px * var(--k))); }
 }
-@keyframes tn-arc {
-  0%, 100% { transform: translateZ(calc(14px * var(--k))); }
-  50% { transform: translateZ(calc(150px * var(--k))); }
-}
-@keyframes tn-shadow {
+@keyframes tn-shadow-size {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(0.55); opacity: 0.5; }
+  50% { transform: scale(0.5); opacity: 0.45; }
 }
+@keyframes tn-ball-run {
+  from { opacity: 1; transform: translate(calc(-76px * var(--k)), calc(190px * var(--k))) scale(0.84); }
+  to { opacity: 1; transform: translate(calc(62px * var(--k)), calc(18px * var(--k))) scale(0.56); }
+}
+@keyframes tn-ball-lift {
+  0% { transform: translateY(0); animation-timing-function: cubic-bezier(0.3, 0.6, 0.5, 1); }
+  50% { transform: translateY(calc(-85px * var(--k))); animation-timing-function: cubic-bezier(0.5, 0, 0.7, 0.4); }
+  100% { transform: translateY(0); }
+}
+@keyframes tn-spin { to { transform: rotate(360deg); } }
 
 @media (prefers-reduced-motion: reduce) {
   .tn-floor { animation: none; transform: rotateX(70deg); }
   .tn-line { animation: none; stroke-dashoffset: 0; }
   .tn-net { animation: none; opacity: 1; }
-  .tn-mover { display: none; }
+  .tn-shadow-track,
+  .tn-ball-track { display: none; }
 }

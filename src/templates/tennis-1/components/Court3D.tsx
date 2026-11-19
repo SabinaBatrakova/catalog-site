@@ -25,10 +25,15 @@ export function Court3D() {
           <span className="tn-post tn-post--right" />
         </div>
 
-        <div className="tn-mover">
+        <div className="tn-shadow-track">
           <div className="tn-shadow" />
-          <div className="tn-lift">
-            <div className="tn-ball" />
+        </div>
+      </div>
+
+      <div className="tn-ball-track">
+        <div className="tn-ball-lift">
+          <div className="tn-ball">
+            <span className="tn-seam" />
           </div>
         </div>
       </div>

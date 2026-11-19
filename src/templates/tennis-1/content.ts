@@ -128,7 +128,7 @@ export const tennisContent: TennisContent = {
     court: "Court 1",
     role: "Coach",
     rows: [
-      { label: "Player", value: "PETROVIĆ M" },
+      { label: "Player", value: "MARKO PETROVIĆ" },
       { label: "Experience · Students", value: "15 YRS 300+" },
       { label: "Next free slot", value: "TUE 10:00", highlight: true },
     ],
@@ -179,7 +179,11 @@ export const tennisContent: TennisContent = {
       { id: "s1", title: "1st serve", text: "Free 30-min assessment on court" },
       { id: "s2", title: "2nd serve", text: "Your personal plan and goals" },
       { id: "s3", title: "Rally", text: "Weekly training, progress video" },
-      { id: "s4", title: "Match", text: "Your first set, league or tournament" },
+      {
+        id: "s4",
+        title: "Match",
+        text: "Your first set, league or tournament",
+      },
     ],
   },
 
@@ -188,9 +192,27 @@ export const tennisContent: TennisContent = {
     label: "Pricing",
     title: "Straight on the scoreboard",
     rows: [
-      { id: "private", name: "Private", note: "1 player, full focus", minutes: "60", price: 45 },
-      { id: "split", name: "Split", note: "2 players, shared court", minutes: "60", price: 30 },
-      { id: "group", name: "Group", note: "3–4 players, same level", minutes: "60", price: 18 },
+      {
+        id: "private",
+        name: "Private",
+        note: "1 player, full focus",
+        minutes: "60",
+        price: 45,
+      },
+      {
+        id: "split",
+        name: "Split",
+        note: "2 players, shared court",
+        minutes: "60",
+        price: 30,
+      },
+      {
+        id: "group",
+        name: "Group",
+        note: "3–4 players, same level",
+        minutes: "60",
+        price: 18,
+      },
       {
         id: "pack",
         name: "10-pack",
@@ -248,27 +270,32 @@ export const tennisContent: TennisContent = {
     score: "Let",
     label: "FAQ",
     title: "Ask again, no penalty",
-    intro: "In tennis, a “let” means the serve is replayed. Same here: any question is welcome.",
+    intro:
+      "In tennis, a “let” means the serve is replayed. Same here: any question is welcome.",
     items: [
       {
         id: "racket",
         question: "Do I need my own racket?",
-        answer: "No. For the first lessons Marko brings rackets for all ages. Later he will help you choose your own.",
+        answer:
+          "No. For the first lessons Marko brings rackets for all ages. Later he will help you choose your own.",
       },
       {
         id: "age",
         question: "From what age can kids start?",
-        answer: "From 5 years. Younger kids train with softer, slower balls on a smaller court.",
+        answer:
+          "From 5 years. Younger kids train with softer, slower balls on a smaller court.",
       },
       {
         id: "rain",
         question: "What if it rains?",
-        answer: "The lesson moves to another day at no cost, or to an indoor court when available.",
+        answer:
+          "The lesson moves to another day at no cost, or to an indoor court when available.",
       },
       {
         id: "cancel",
         question: "How do I cancel a lesson?",
-        answer: "Free cancellation up to 24 hours before the lesson. Later cancellations are charged in full.",
+        answer:
+          "Free cancellation up to 24 hours before the lesson. Later cancellations are charged in full.",
       },
     ],
   },
@@ -286,10 +313,19 @@ export const tennisContent: TennisContent = {
       { id: "sat", weekday: "Sat", date: "22" },
     ],
     times: ["08:00", "10:00", "12:00", "16:00", "18:00", "19:30"],
-    busy: ["mon-10:00", "mon-16:00", "tue-08:00", "tue-18:00", "wed-12:00", "thu-10:00", "fri-08:00", "sat-16:00"],
+    busy: [
+      "mon-10:00",
+      "mon-16:00",
+      "tue-08:00",
+      "tue-18:00",
+      "wed-12:00",
+      "thu-10:00",
+      "fri-08:00",
+      "sat-16:00",
+    ],
     namePlaceholder: "Your name",
     phonePlaceholder: "WhatsApp or phone",
-    button: "Book this slot →",
+    button: "Book this slot",
     successTitle: "Game, set, yours.",
   },
 
