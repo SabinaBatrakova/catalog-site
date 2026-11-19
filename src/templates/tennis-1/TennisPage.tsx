@@ -10,9 +10,17 @@ import { About } from "./components/About";
 import { Faq } from "./components/Faq";
 import { Booking } from "./components/Booking";
 import { TennisFooter } from "./components/TennisFooter";
+import { useEffect } from "react";
 
 export function TennisPage() {
   const c = tennisContent;
+  useEffect(() => {
+    const previous = document.documentElement.lang;
+    document.documentElement.lang = "en";
+    return () => {
+      document.documentElement.lang = previous;
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white font-inter text-tn-green">
