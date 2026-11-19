@@ -4,6 +4,8 @@ import { HeroTitle } from "./components/HeroTitle";
 import { Scoreboard } from "./components/Scoreboard";
 import { Court3D } from "./components/Court3D";
 import { ScoreNav } from "./components/ScoreNav";
+import { Programs } from "./components/Programs";
+import { Pricing } from "./components/Pricing";
 
 export function TennisPage() {
   const c = tennisContent;
@@ -37,17 +39,8 @@ export function TennisPage() {
         <ScoreNav items={c.nav} startDelay={3200} />
       </section>
 
-      <section id="programs" className="mx-auto max-w-6xl px-6 py-10">
-        <p className="font-shoulders text-5xl font-black text-tn-clay">
-          {c.programs.score}
-        </p>
-      </section>
-
-      <section id="pricing" className="mx-auto max-w-6xl px-6 py-10">
-        <p className="font-shoulders text-5xl font-black text-tn-clay">
-          {c.pricing.score}
-        </p>
-      </section>
+      <Programs data={c.programs} />
+      <Pricing data={c.pricing} />
 
       <section id="about" className="mx-auto max-w-6xl px-6 py-10">
         <p className="font-shoulders text-5xl font-black text-tn-clay">
