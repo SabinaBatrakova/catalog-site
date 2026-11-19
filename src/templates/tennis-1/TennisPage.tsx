@@ -6,6 +6,8 @@ import { Court3D } from "./components/Court3D";
 import { ScoreNav } from "./components/ScoreNav";
 import { Programs } from "./components/Programs";
 import { Pricing } from "./components/Pricing";
+import { About } from "./components/About";
+import { Faq } from "./components/Faq";
 
 export function TennisPage() {
   const c = tennisContent;
@@ -41,18 +43,8 @@ export function TennisPage() {
 
       <Programs data={c.programs} />
       <Pricing data={c.pricing} />
-
-      <section id="about" className="mx-auto max-w-6xl px-6 py-10">
-        <p className="font-shoulders text-5xl font-black text-tn-clay">
-          {c.about.score}
-        </p>
-      </section>
-
-      <section id="faq" className="mx-auto max-w-6xl px-6 py-10">
-        <p className="font-shoulders text-5xl font-black text-tn-clay">
-          {c.faq.score}
-        </p>
-      </section>
+      <About data={c.about} />
+      <Faq data={c.faq} />
 
       <section id="book" className="bg-tn-clay px-6 py-10 text-white">
         <p className="mx-auto max-w-6xl font-shoulders text-5xl font-black text-tn-lime">
