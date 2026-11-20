@@ -132,7 +132,7 @@ export const tennisContent: TennisContent = {
       { label: "Experience · Students", value: "15 YRS 300+" },
       { label: "Next free slot", value: "TUE 10:00", highlight: true },
     ],
-    cta: "Book this slot →",
+    cta: "Book this slot",
   },
 
   nav: [
