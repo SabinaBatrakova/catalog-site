@@ -80,6 +80,17 @@
       opacity: 0;
     }
   }
+
+  /* coffee-1 */
+  --font-coffee-serif: "Young Serif",
+  serif;
+  --font-coffee-sans: "Work Sans",
+  sans-serif;
+  --color-coffee-ink: #2a1a12;
+  --color-coffee-espresso: #4a2c1d;
+  --color-coffee-crema: #c8915a;
+  --color-coffee-muted: #8a7b72;
+  --color-coffee-line: #ece6e1;
 }
 
 @utility font-narrow {

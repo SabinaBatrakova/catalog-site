@@ -37,11 +37,11 @@ const items: CarouselItem[] = [
     previewSrc: "/templates/tennis-1",
   },
   {
-    id: "school-1",
-    title: "Обучение и семинары",
+    id: "coffee-1",
+    title: "Кофейня",
     label: "Шаблон",
-    href: "/templates/school-1",
-    previewSrc: "/templates/school-1",
+    href: "/templates/coffee-1",
+    previewSrc: "/templates/coffee-1",
   },
   {
     id: "rental-1",

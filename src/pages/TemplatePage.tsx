@@ -7,14 +7,11 @@ import { Hero } from "@/components/blocks/Hero";
 import { ServicesGrid } from "@/components/blocks/ServicesGrid";
 import { ContactCTA } from "@/components/blocks/ContactCTA";
 import { Footer } from "@/components/blocks/Footer";
-import { schoolContent } from "@/templates/school-1/content";
 import { RentalPage } from "@/templates/rental-1/RentalPage";
 import { TennisPage } from "@/templates/tennis-1/TennisPage";
 import { CoffeePage } from "@/templates/coffee-1/CoffeePage";
 
-const registry: Record<string, TemplateContent> = {
-  "school-1": schoolContent,
-};
+const registry: Record<string, TemplateContent> = {};
 
 const customPages: Record<string, ComponentType> = {
   "rental-1": RentalPage,
