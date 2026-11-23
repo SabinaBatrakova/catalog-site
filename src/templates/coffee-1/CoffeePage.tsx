@@ -4,9 +4,10 @@ import { ScrollMachine } from "./components/ScrollMachine";
 import { Header } from "./components/Header";
 import { Wordmark } from "./components/Wordmark";
 import { Hero } from "./components/Hero";
+import { Menu } from "./components/Menu";
 
 export function CoffeePage() {
-  const { brand, nav, hero, scene } = coffeeContent;
+  const { brand, nav, hero, menu, scene } = coffeeContent;
   const [cartCount] = useState(0);
 
   return (
@@ -17,10 +18,14 @@ export function CoffeePage() {
 
       <main className="relative z-[2]">
         <Hero data={hero} />
+        <Menu data={menu} />
         <div className="h-[400vh]" />
       </main>
 
-      <div id="trust" className="relative z-[2] h-40 border-t border-coffee-line bg-white" />
+      <div
+        id="trust"
+        className="relative z-[2] h-40 border-t border-coffee-line bg-white"
+      />
     </div>
   );
 }
