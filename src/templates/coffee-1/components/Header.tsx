@@ -4,9 +4,10 @@ type HeaderProps = {
   brand: CoffeeContent["brand"];
   nav: CoffeeContent["nav"];
   cartCount: number;
+  onCartClick: () => void;
 };
 
-export function Header({ brand, nav, cartCount }: HeaderProps) {
+export function Header({ brand, nav, cartCount, onCartClick }: HeaderProps) {
   return (
     <header className="fixed inset-x-0 top-0 z-20 flex items-center justify-between bg-white/85 px-5 py-4 backdrop-blur-md min-[820px]:px-12 min-[820px]:py-5">
       <a href="#top" className="leading-none">
@@ -30,6 +31,7 @@ export function Header({ brand, nav, cartCount }: HeaderProps) {
 
       <button
         type="button"
+        onClick={onCartClick}
         aria-label={`Cart, ${cartCount} items`}
         className="flex items-center gap-2 rounded-full border border-coffee-ink bg-white px-4 py-2 text-sm"
       >
