@@ -16,7 +16,19 @@ import { CartDrawer } from "./components/CartDrawer";
 
 export function CoffeePage() {
   const {
-    brand, nav, hero, menu, beans, story, classes, visit, final, trust, footer, cart: cartLabels, scene,
+    brand,
+    nav,
+    hero,
+    menu,
+    beans,
+    story,
+    classes,
+    visit,
+    final,
+    trust,
+    footer,
+    cart: cartLabels,
+    scene,
   } = coffeeContent;
   const [cart, setCart] = useState<Record<string, number>>({});
   const [cartOpen, setCartOpen] = useState(false);
@@ -25,9 +37,10 @@ export function CoffeePage() {
 
   const changeQty = (id: string, delta: number) => {
     setCart((prev) => {
-      const next = (prev[id] ?? 0) + delta;
-      const { [id]: _removed, ...rest } = prev;
-      return next > 0 ? { ...rest, [id]: next } : rest;
+      const next = { ...prev, [id]: (prev[id] ?? 0) + delta };
+      return Object.fromEntries(
+        Object.entries(next).filter(([, qty]) => qty > 0),
+      );
     });
   };
 
