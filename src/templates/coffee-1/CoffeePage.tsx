@@ -10,10 +10,24 @@ import { Story } from "./components/Story";
 import { Classes } from "./components/Classes";
 import { Visit } from "./components/Visit";
 import { Final } from "./components/Final";
+import { TrustRow } from "./components/TrustRow";
+import { Footer } from "./components/Footer";
 
 export function CoffeePage() {
-  const { brand, nav, hero, menu, beans, story, classes, visit, final, scene } =
-    coffeeContent;
+  const {
+    brand,
+    nav,
+    hero,
+    menu,
+    beans,
+    story,
+    classes,
+    visit,
+    final,
+    trust,
+    footer,
+    scene,
+  } = coffeeContent;
   const [cart, setCart] = useState<Record<string, number>>({});
 
   const cartCount = Object.values(cart).reduce((sum, n) => sum + n, 0);
@@ -38,7 +52,8 @@ export function CoffeePage() {
         <Final data={final} />
       </main>
 
-      <div id="trust" className="relative z-[2] h-40 border-t border-coffee-line bg-white" />
+      <TrustRow id="trust" items={trust} />
+      <Footer data={footer} />
     </div>
   );
 }
