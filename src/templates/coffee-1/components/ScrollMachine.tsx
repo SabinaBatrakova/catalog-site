@@ -47,6 +47,7 @@ export function ScrollMachine({ data, endId }: ScrollMachineProps) {
 
     let progress = reduceMotion ? 1 : 0;
     let current = staticIndex;
+    let overshoot = 0; // NEW: на сколько px прокрутили дальше конца анимации
     let ticking = false;
 
     const draw = () => {
@@ -55,6 +56,7 @@ export function ScrollMachine({ data, endId }: ScrollMachineProps) {
 
       const W = canvas.width;
       const H = canvas.height;
+      const dpr = H / window.innerHeight; // NEW
       const e = smooth(progress);
       const k = isMobile ? 1.05 - 0.2 * e : 1.65 - 0.47 * e;
       const h = H * k;
@@ -66,7 +68,7 @@ export function ScrollMachine({ data, endId }: ScrollMachineProps) {
 
       ctx.fillStyle = "#fff";
       ctx.fillRect(0, 0, W, H);
-      ctx.drawImage(img, cx - w / 2, y, w, h);
+      ctx.drawImage(img, cx - w / 2, y - overshoot * dpr, w, h); // NEW: - overshoot
     };
 
     const images = Array.from({ length: count }, (_, i) => {
@@ -88,6 +90,7 @@ export function ScrollMachine({ data, endId }: ScrollMachineProps) {
         const total = Math.max(endTop - window.innerHeight, 1);
         progress = Math.min(1, Math.max(0, window.scrollY / total));
         current = Math.round(progress * (count - 1));
+        overshoot = Math.max(0, window.scrollY - total); // NEW
       }
       draw();
       if (barRef.current) barRef.current.style.height = `${progress * 100}%`;
