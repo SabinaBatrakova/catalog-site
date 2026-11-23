@@ -5,10 +5,17 @@ import { Header } from "./components/Header";
 import { Wordmark } from "./components/Wordmark";
 import { Hero } from "./components/Hero";
 import { Menu } from "./components/Menu";
+import { Beans } from "./components/Beans";
 
 export function CoffeePage() {
-  const { brand, nav, hero, menu, scene } = coffeeContent;
-  const [cartCount] = useState(0);
+  const { brand, nav, hero, menu, beans, scene } = coffeeContent;
+  const [cart, setCart] = useState<Record<string, number>>({});
+
+  const cartCount = Object.values(cart).reduce((sum, n) => sum + n, 0);
+
+  const addToCart = (id: string) => {
+    setCart((prev) => ({ ...prev, [id]: (prev[id] ?? 0) + 1 }));
+  };
 
   return (
     <div className="relative overflow-x-clip bg-white font-coffee-sans text-coffee-ink">
@@ -19,13 +26,11 @@ export function CoffeePage() {
       <main className="relative z-[2]">
         <Hero data={hero} />
         <Menu data={menu} />
-        <div className="h-[400vh]" />
+        <Beans data={beans} cart={cart} onAdd={addToCart} />
+        <div className="h-[200vh]" />
       </main>
 
-      <div
-        id="trust"
-        className="relative z-[2] h-40 border-t border-coffee-line bg-white"
-      />
+      <div id="trust" className="relative z-[2] h-40 border-t border-coffee-line bg-white" />
     </div>
   );
 }
