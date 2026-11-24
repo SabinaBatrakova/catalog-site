@@ -113,8 +113,8 @@ export const coffeeContent: CoffeeContent = {
   scene: {
     desktopFrames: 121,
     mobileFrames: 61,
-    desktopPath: "/coffee/desktop/",
-    mobilePath: "/coffee/mobile/",
+    desktopPath: "/coffee/v4/desktop/",
+    mobilePath: "/coffee/v4/mobile/",
     stages: ["Beans", "Grind", "Espresso", "Your cup"],
   },
   hero: {

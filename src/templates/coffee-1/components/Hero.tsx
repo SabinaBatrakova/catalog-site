@@ -11,7 +11,7 @@ export function Hero({ data }: HeroProps) {
       id={data.id}
       className="flex min-h-svh items-end px-5 pb-10 pt-24 min-[820px]:px-12 min-[820px]:pb-12"
     >
-      <div className="w-full rounded-[20px] border border-coffee-line bg-white/90 p-5 min-[820px]:w-[min(460px,36vw)] min-[820px]:rounded-none min-[820px]:border-0 min-[820px]:bg-transparent min-[820px]:p-0">
+      <div className="w-full rounded-3xl border border-white/60 bg-coffee-foam/75 p-5 shadow-[0_8px_30px_rgba(74,44,29,0.08)] backdrop-blur-xl min-[820px]:w-[min(480px,36vw)] min-[820px]:p-8">
         <p className="text-[11px] uppercase tracking-[0.24em] text-coffee-crema min-[820px]:text-xs">
           {data.eyebrow}
         </p>

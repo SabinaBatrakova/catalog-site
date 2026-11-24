@@ -13,7 +13,7 @@ export function Section({ head, children }: SectionProps) {
       id={head.id}
       className="flex min-h-svh scroll-mt-20 items-end px-5 py-24 min-[820px]:items-center min-[820px]:px-12 min-[820px]:py-32"
     >
-      <div className="w-full rounded-[20px] border border-coffee-line bg-white/95 p-5 min-[820px]:w-[min(500px,40vw)] min-[820px]:rounded-none min-[820px]:border-0 min-[820px]:bg-transparent min-[820px]:p-0">
+      <div className="w-full rounded-3xl border border-white/60 bg-coffee-foam/75 p-5 shadow-[0_8px_30px_rgba(74,44,29,0.08)] backdrop-blur-xl min-[820px]:w-[min(520px,40vw)] min-[820px]:p-8">
         <p className="text-[11px] uppercase tracking-[0.24em] text-coffee-crema min-[820px]:text-xs">
           {head.eyebrow}
         </p>
