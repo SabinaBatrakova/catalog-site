@@ -2,9 +2,10 @@ import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
 import { RunningText } from "@/components/home/RunningText";
 import { About } from "@/components/home/About";
-import { WorksCarousel } from "@/components/home/WorksCarousel";
+
 import { Process } from "@/components/home/Process";
 import { SiteFooter } from "@/components/home/SiteFooter";
+import { Works } from "@/components/home/Works";
 
 export function Catalog() {
   return (
@@ -14,7 +15,7 @@ export function Catalog() {
         <Hero />
         <RunningText />
         <About />
-        <WorksCarousel />
+        <Works />
         <Process />
       </main>
       <SiteFooter />
