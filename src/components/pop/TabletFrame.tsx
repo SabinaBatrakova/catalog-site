@@ -1,8 +1,9 @@
 import type { Work } from "@/lib/works";
+import { useElementWidth } from "@/lib/useElementWidth";
 
 type TabletFrameProps = {
   work: Work;
-  width?: number; // ширина планшета на странице, px (высота считается сама)
+  width?: number; // МАКСИМАЛЬНАЯ ширина планшета, px
   className?: string;
 };
 
@@ -14,13 +15,21 @@ const SCREEN = { left: 1.84, top: 2.94, width: 96.5, height: 94.81 };
 const VIEWPORT = 1180; // ширина iPad в горизонтальном положении
 
 export function TabletFrame({ work, width = 640, className = "" }: TabletFrameProps) {
-  const height = (width * FRAME_H) / FRAME_W;
-  const screenW = (width * SCREEN.width) / 100;
-  const screenH = (height * SCREEN.height) / 100;
+  const { ref, width: measured } = useElementWidth<HTMLDivElement>();
+
+  // пока ширина ещё не измерена (первый кадр) — берём максимальную
+  const realW = measured || width;
+  const realH = (realW * FRAME_H) / FRAME_W;
+  const screenW = (realW * SCREEN.width) / 100;
+  const screenH = (realH * SCREEN.height) / 100;
   const scale = screenW / VIEWPORT;
 
   return (
-    <div className={`relative shrink-0 ${className}`} style={{ width, height }}>
+    <div
+      ref={ref}
+      className={`relative w-full ${className}`}
+      style={{ maxWidth: width, aspectRatio: `${FRAME_W} / ${FRAME_H}` }}
+    >
       {/* экран — лежит ПОД рамкой */}
       <div
         className="absolute overflow-hidden bg-white"
