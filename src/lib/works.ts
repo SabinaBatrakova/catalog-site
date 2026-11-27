@@ -25,6 +25,7 @@ export type Work = {
   label: string;
   category: string;
   description: string;
+  short: string;
   stack: string[];
   features: string[];
   ai: string | null;
@@ -49,6 +50,7 @@ export const works: Work[] = [
     category: "Кафе и рестораны",
     description:
       "Лендинг кофейни с обжаркой: кофемашина «готовит» эспрессо по мере прокрутки. Меню, продажа зёрен с корзиной, мастер-классы, контакты.",
+    short: "Кофемашина готовит эспрессо, пока вы листаете.",
     stack: ["React", "TypeScript", "Vite", "Tailwind v4"],
     features: ["Анимация по скроллу (canvas)", "Корзина", "Адаптив"],
     ai: "Видео и изображения — Kling AI",
@@ -72,6 +74,7 @@ export const works: Work[] = [
     category: "Спорт и тренеры",
     description:
       "Личный сайт тренера: 3D-корт на CSS, структура по теннисному счёту, тарифы и запись на тренировку.",
+    short: "Лендинг тренера с 3D-кортом и записью на тренировку.",
     stack: ["React", "TypeScript", "Vite", "Tailwind v4"],
     features: ["3D-корт на CSS", "Одностраничник", "Адаптив"],
     ai: null, // TODO: был ли ИИ?
@@ -95,6 +98,7 @@ export const works: Work[] = [
     category: "Туризм и недвижимость",
     description:
       "Апартаменты и экскурсии в Черногории: дизайн «почтовые открытки», три языка.",
+    short: "Апартаменты и туры в стиле почтовых открыток, три языка.",
     stack: ["React", "TypeScript", "Vite", "Tailwind v4"],
     features: ["Каталог объектов и туров", "Переключатель языков", "Адаптив"],
     ai: null, // TODO
@@ -117,6 +121,7 @@ export const works: Work[] = [
     label: "Проект",
     category: "Обучение",
     description: "Сайт образовательных семинаров по подологии.",
+    short: "Реальный проект: сайт семинаров по подологии.",
     stack: ["TODO"],
     features: ["Семинары", "Запись"],
     ai: null,
@@ -133,6 +138,7 @@ export const works: Work[] = [
     label: "В работе",
     category: "Студия подологии",
     description: "Сайт студии подологии, в разработке.",
+    short: "Реальный проект: сайт студии подологии, в работе.",
     stack: ["React"],
     features: ["TODO"],
     ai: null,
