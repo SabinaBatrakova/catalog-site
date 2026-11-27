@@ -4,11 +4,11 @@ import { RunningText } from "@/components/home/RunningText";
 import { About } from "@/components/home/About";
 import { Process } from "@/components/home/Process";
 import { SiteFooter } from "@/components/home/SiteFooter";
-
 import { WorksShowcase } from "@/components/pop/WorksShowcase";
 import { WorksGrid } from "@/components/pop/WorksGrid";
 import { ServiceShowcase } from "@/components/pop/ServiceShowcase";
 import { availableServices } from "@/lib/services";
+import { SoonServices } from "@/components/pop/SoonServices";
 
 export function Catalog() {
   return (
@@ -27,6 +27,7 @@ export function Catalog() {
             button="Хочу витрину"
           />
         ))}
+        <SoonServices />
         <Process />
       </main>
       <SiteFooter />
