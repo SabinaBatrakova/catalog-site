@@ -110,8 +110,13 @@
   --color-pop-link: #6ea5ff;
 
   /* Шрифты */
-  --font-pop: "Satoshi", "Inter", system-ui, sans-serif;
-  --font-pop-input: "Inter", system-ui, sans-serif;
+  --font-pop-display: "Oswald",
+  ui-sans-serif,
+  system-ui,
+  sans-serif;
+  --font-pop-input: "Inter",
+  system-ui,
+  sans-serif;
 
   /* Размеры текста */
   --text-pop-caption: 12px;

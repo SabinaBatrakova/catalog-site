@@ -13,13 +13,13 @@ export function WorksShowcase() {
           <span className="font-bold italic tracking-tight">Сабины*</span>
         </p>
 
-        <h2 className="m-0 text-pop-display font-medium text-pop-ink">
+        <h2 className="m-0 font-pop-display text-pop-display font-bold uppercase leading-[0.95] tracking-[-0.01em] text-pop-ink">
           Сайты, которые уже работают на бизнес
         </h2>
 
         <p className="max-w-[460px] text-pop-body">
-          Каждый шаблон — живой сайт. Выберите основу, а я подгоню тексты,
-          цвета и функции под вас.
+          Каждый шаблон — живой сайт. Выберите основу, а я подгоню тексты, цвета
+          и функции под вас.
         </p>
 
         <div className="mt-1 flex w-full flex-col items-center gap-3">
