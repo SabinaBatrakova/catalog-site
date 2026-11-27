@@ -4,8 +4,9 @@ import { RunningText } from "@/components/home/RunningText";
 import { About } from "@/components/home/About";
 import { Process } from "@/components/home/Process";
 import { SiteFooter } from "@/components/home/SiteFooter";
-import { Works } from "@/components/home/Works";
+
 import { WorksShowcase } from "@/components/pop/WorksShowcase";
+import { WorksGrid } from "@/components/pop/WorksGrid";
 
 export function Catalog() {
   return (
@@ -16,7 +17,7 @@ export function Catalog() {
         <WorksShowcase />
         <RunningText />
         <About />
-        <Works />
+        <WorksGrid />
         <Process />
       </main>
       <SiteFooter />
