@@ -6,6 +6,7 @@ import { About } from "@/components/home/About";
 import { Process } from "@/components/home/Process";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { Works } from "@/components/home/Works";
+import { PhoneRow } from "@/components/pop/PhoneRow";
 
 export function Catalog() {
   return (
@@ -13,6 +14,7 @@ export function Catalog() {
       <SiteHeader />
       <main>
         <Hero />
+        <PhoneRow />
         <RunningText />
         <About />
         <Works />
