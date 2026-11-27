@@ -7,6 +7,8 @@ import { SiteFooter } from "@/components/home/SiteFooter";
 
 import { WorksShowcase } from "@/components/pop/WorksShowcase";
 import { WorksGrid } from "@/components/pop/WorksGrid";
+import { ServiceShowcase } from "@/components/pop/ServiceShowcase";
+import { availableServices } from "@/lib/services";
 
 export function Catalog() {
   return (
@@ -18,6 +20,13 @@ export function Catalog() {
         <RunningText />
         <About />
         <WorksGrid />
+        {availableServices.map((service) => (
+          <ServiceShowcase
+            key={service.id}
+            service={service}
+            button="Хочу витрину"
+          />
+        ))}
         <Process />
       </main>
       <SiteFooter />
